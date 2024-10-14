@@ -5,8 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+    <div class="container">
+        <div id="sidebar" class="sidebar">
+            <div class="iconContainer">
+                <div class="iconGroup">
+                    <span class="iconGroupText">Expand</span>
+                    <i id="closeButton" class="fa-solid fa-angles-right"></i>
+                </div>
+                
+                <div class="btnGroup">
+                    <a href="/index.html" class="iconGroup">
+                        <span class="iconGroupText">Home</span>
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                    <a href="/wishlist.html" class="iconGroup">
+                        <span class="iconGroupText">Wishlist</span>
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="hero">
+            <h2>Home Page</h2>
+            <div class="searchBarContainer">
+                <input type="text" id="search-bar" placeholder="Search for books..." oninput="filterBooks()" />
+            </div>
+            <div id="library" class="library">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/4389202277.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,152 @@
+body, html {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.container{
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.sidebar{
+    width: 50px;
+    height: 100vh;
+    transition: width 0.5s ease;
+    border-right: 1px solid rgb(185, 185, 185);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1000;
+    overflow: hidden;
+
+}
+
+.iconContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+
+.btnGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    margin-top: 10px;
+}
+
+.iconGroup{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.iconGroupText{
+    margin: 0px 15px;
+    text-align: left;
+    display: none;
+}
+
+.iconContainer i{
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.hero{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    padding-left: 60px;
+}
+
+.hero > h2{
+    margin: 0;
+}
+
+.searchBarContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar::placeholder {
+    color: #aaa;
+}
+
+#search-bar:focus {
+    border-color: #4cceac;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.library {
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.bookCard {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.book-cover {
+    width: 70%;
+    height: auto;
+    max-height: 300px;
+}
+
+.bookCard>h5 {
+    margin: 5px 0px;
+}
+
+.bookCard > p {
+    font-size: 12px;
+    margin: 5px 0px;
+}
+
+@media (min-width: 600px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media (min-width: 900px) {
+    .container {
+            width: 100%;
+        }
+}
