@@ -9,7 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <div id="sidebar" class="sidebar">
+        <div id="navbar" class="navbar">
+            <a href="/index.html" class="iconGroup">
+                <span class="iconGroupText">Home</span>
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="/wishlist.html" class="iconGroup">
+                <span class="iconGroupText">Wishlist</span>
+                <i class="fa-solid fa-heart"></i>
+            </a>
+        </div>
+        <!-- <div id="sidebar" class="sidebar">
             <div class="iconContainer">
                 <div class="iconGroup">
                     <span class="iconGroupText">Expand</span>
@@ -27,18 +37,24 @@
                     </a>
                 </div>
             </div>
-            
-
-        </div>
+        </div> -->
         <div class="hero">
             <h2>Home Page</h2>
             <div class="searchBarContainer">
                 <input type="text" id="search-bar" placeholder="Search for books..." oninput="filterBooks()" />
+                <div class="selectBoxContainer">
+                    <select id="bookGenre" class="selectBox" onchange="filterBooksByGenre()">
+                        <option value="">All Genres</option>
+                    </select>
+                </div>
             </div>
             <div id="library" class="library">
 
             </div>
+            <div id="pagination-controls" class="pagination-controls"></div>
+
         </div>
+
     </div>
     <script src="https://kit.fontawesome.com/4389202277.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>

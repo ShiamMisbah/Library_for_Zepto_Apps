@@ -19,57 +19,40 @@ a{
     padding: 10px;
 }
 
-.sidebar{
-    width: 50px;
-    height: 100vh;
-    transition: width 0.5s ease;
-    border-right: 1px solid rgb(185, 185, 185);
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: white;
-    z-index: 1000;
-    overflow: hidden;
-
-}
-
-.iconContainer{
+.navbar {
     display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding-right: 10px;
-    padding-top: 15px;
-}
-
-.btnGroup {
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    margin-top: 10px;
-}
-
-.iconGroup{
-    display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    height: 60px;
+    position: relative;
+    width: 100%;
 }
 
-.iconGroupText{
-    margin: 0px 15px;
-    text-align: left;
-    display: none;
+.iconGroup {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
 }
 
-.iconContainer i{
-    font-size: 24px;
-    margin: 10px 0;
+.iconGroupText {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.iconGroup:hover {
+    color: #f0f0f0;
+    transition: color 0.3s ease;
 }
 
 .hero{
     width: 100%;
     height: 100%;
     padding: 10px;
-    padding-left: 60px;
+    padding-left: 20px;
 }
 
 .hero > h2{
@@ -82,6 +65,7 @@ a{
     margin: 20px auto;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #search-bar {
@@ -102,6 +86,36 @@ a{
 #search-bar:focus {
     border-color: #4cceac;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.selectBoxContainer {
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.selectBox {
+    width: 200px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.selectBox:hover,
+.selectBox:focus {
+    border-color: #4cceac;
+    /* Green accent */
 }
 
 .library {
@@ -138,6 +152,32 @@ a{
     font-size: 12px;
     margin: 5px 0px;
 }
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #4cceac;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination-controls button:hover {
+    background-color: #3da58a;
+}
+
+.pagination-controls button.active {
+    background-color: #3da58a;
+}
+
+
 
 @media (min-width: 600px) {
     .container {
