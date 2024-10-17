@@ -2,6 +2,7 @@ body, html {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: Arial, sans-serif;
 }
 
 *{
@@ -11,13 +12,6 @@ body, html {
 a{
     text-decoration: none;
     color: inherit;
-}
-
-.wishlist-btn{
-    text-decoration: none;
-    color: red;
-    font-size: 24px;
-    border: none;
 }
 
 .container{
@@ -71,6 +65,7 @@ a{
     max-width: 600px;
     margin: 20px auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -145,6 +140,7 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    cursor: pointer;
 }
 
 
@@ -170,6 +166,19 @@ label {
 .bookCard p {
     font-size: 12px;
     margin: 5px 0px;
+}
+
+.wishlistBtn{
+    cursor: pointer;
+    text-decoration: none;
+    color: red;
+    font-size: 24px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.wishlistBtn:hover{
+    transform: scale(1.5);
 }
 
 .pagination-controls {
@@ -208,4 +217,7 @@ label {
     .container {
             width: 100%;
         }
+    .searchBarContainer{
+        flex-direction: row;
+    }
 }

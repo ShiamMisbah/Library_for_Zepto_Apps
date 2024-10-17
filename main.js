@@ -46,7 +46,6 @@ const fetchBooks = async (page = 1) => {
     const data = await response.json();
     displayBooks(data.results);
     setupPagination(data.results, page);
-    console.log(data);
   } catch (error) {
     console.error("Error fetching books:", error);
     document.getElementById("error-message").textContent =
@@ -64,14 +63,15 @@ const displayBooks = (books) => {
         .map((category) => category.replace("Browsing: ", ""))
       createGenreList(filteredCategories);
       const bookCard = `
-      <div class="bookCard">
+      <div class="bookCard" onclick="goToBookDetails(${book.id})">
         <div class="infoSection">
           <img src="${book.formats['image/jpeg']}" alt="${book.title}" class="book-cover" />
           <h5>${book.title}</h5>
           <p>Author: ${book.authors.map(author => author.name).join(', ')}</p>
           <p class="genre">Genre: ${filteredCategories.length ? filteredCategories.join(', ') : 'N/A'}</p>
+          <p>Book ID: ${book.id}</p>
         </div>
-        <button onclick="toggleWishlist(${book.id})" class="wishlist-btn" data-id="${book.id}">
+        <button onclick="toggleWishlist(event, ${book.id})" class="wishlistBtn" data-id="${book.id}">
           <i class="${isWishlisted(book.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
         </button>
       </div>
@@ -79,13 +79,16 @@ const displayBooks = (books) => {
       library.innerHTML += bookCard;
   });
 
-  console.log(bookGenre);
   genreList.forEach(genre => {
     bookGenre.innerHTML += `<option value="${genre}">${genre}</option>`;
   })
   
     
 };
+
+function goToBookDetails(bookId) {
+  window.location.href = `/bookInfo.html?id=${bookId}`;
+}
 
 const createGenreList = (filteredCategories) => {
   const uniqueGenres = new Set([...genreList, ...filteredCategories]);
@@ -98,8 +101,6 @@ const setupPagination = (data, page) => {
   const paginationControls = document.getElementById('pagination-controls');
   paginationControls.innerHTML = ''
 
-  // const totalPages = Math.ceil(data.length / booksPerPage)
-
   // Create Previous button
   if (page > 1) {
     const prevButton = document.createElement('button');
@@ -108,33 +109,31 @@ const setupPagination = (data, page) => {
     paginationControls.appendChild(prevButton);
   }
 
-  // // Create page number buttons
-  // for (let i = 1; i <= totalPages; i++) {
-  //   const pageButton = document.createElement('button');
-  //   pageButton.innerText = i;
-    
-  //   pageButton.classList.toggle("active", i === page);
-  //   pageButton.onclick = () => fetchBooks(i); // Fetch books for selected page
-  //   paginationControls.appendChild(pageButton);
-  // }
-
-  // Create Next button
   if (page) {
     const nextButton = document.createElement("button");
     nextButton.innerText = "Next";
-    nextButton.onclick = () => fetchBooks(page + 1); // Go to next page
+    nextButton.onclick = () => fetchBooks(page + 1);
     paginationControls.appendChild(nextButton);
   }
 };
 
-const toggleWishlist = (bookId) => {
+const toggleWishlist = (event, bookId) => {
+  event.stopPropagation();
   let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const buttonElement = event.currentTarget;
+  const children = buttonElement.children;
+
   if (wishlist.includes(bookId)) {
     wishlist = wishlist.filter((id) => id !== bookId);
+    children[0].classList.remove("fa-solid");
+    children[0].classList.add("fa-regular");
   } else {
     wishlist.push(bookId);
+    children[0].classList.remove("fa-regular");
+    children[0].classList.add("fa-solid");
   }
   localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  
 }
 
 const isWishlisted = (bookId) => {

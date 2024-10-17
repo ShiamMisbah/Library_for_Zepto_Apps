@@ -1,0 +1,74 @@
+body,
+html {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookDetails {
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.book-cover {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.bookDetails h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.bookDetails p {
+    font-size: 16px;
+    color: #555;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-link:hover {
+    background-color: #0056b3;
+}
+
+.wishlistBtn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+    color: red;
+    font-size: 24px;
+    border: none;
+    transition: transform 0.3s ease;
+}
