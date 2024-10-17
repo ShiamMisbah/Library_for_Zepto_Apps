@@ -2,8 +2,36 @@ var sidebarStatus = false;
 var genreList = []
 
 window.onload = () => {
-    
-  fetchBooks();
+  const path = window.location.pathname;
+
+  if (path === '/index.html'){
+    fetchBooks()
+  } else if (path === '/wishlist.html'){
+    fetchListedBooks()
+  }
+
+};
+
+const fetchListedBooks = async () => {
+  console.log(JSON.parse(localStorage.getItem("wishlist")));
+  const idList = JSON.parse(localStorage.getItem("wishlist"));
+  
+  if (idList)
+  {try {
+    const response = await fetch(`https://gutendex.com/books?ids=${idList.join(',')}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    displayBooks(data.results);
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    document.getElementById("error-message").textContent =
+      "Failed to fetch books. Please try again later.";
+  }}
 };
 
 
@@ -37,13 +65,15 @@ const displayBooks = (books) => {
       createGenreList(filteredCategories);
       const bookCard = `
       <div class="bookCard">
+        <div class="infoSection">
           <img src="${book.formats['image/jpeg']}" alt="${book.title}" class="book-cover" />
           <h5>${book.title}</h5>
           <p>Author: ${book.authors.map(author => author.name).join(', ')}</p>
           <p class="genre">Genre: ${filteredCategories.length ? filteredCategories.join(', ') : 'N/A'}</p>
-          <button onclick="toggleWishlist(${book.id})" class="wishlist-btn" data-id="${book.id}">
-          <i class="fa ${isWishlisted(book.id) ? 'fa-heart' : 'fa-heart-o'}"></i>
-          </button>
+        </div>
+        <button onclick="toggleWishlist(${book.id})" class="wishlist-btn" data-id="${book.id}">
+          <i class="${isWishlisted(book.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+        </button>
       </div>
       `;
       library.innerHTML += bookCard;
@@ -97,8 +127,20 @@ const setupPagination = (data, page) => {
   }
 };
 
+const toggleWishlist = (bookId) => {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  if (wishlist.includes(bookId)) {
+    wishlist = wishlist.filter((id) => id !== bookId);
+  } else {
+    wishlist.push(bookId);
+  }
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
+
 const isWishlisted = (bookId) => {
-    return true
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    return wishlist.includes(bookId);
+
 };
 
 const filterBooks = () => {
