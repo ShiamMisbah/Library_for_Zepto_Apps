@@ -30,7 +30,7 @@ body {
     position: relative;
 }
 
-.book-cover {
+.bookCover {
     max-width: 200px;
     height: auto;
     margin-bottom: 20px;
@@ -44,20 +44,6 @@ body {
 .bookDetails p {
     font-size: 16px;
     color: #555;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.back-link:hover {
-    background-color: #0056b3;
 }
 
 .wishlistBtn {

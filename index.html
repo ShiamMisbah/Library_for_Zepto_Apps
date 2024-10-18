@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -22,7 +22,7 @@
         <div class="hero">
             <h2>Home Page</h2>
             <div class="searchBarContainer">
-                <input type="text" id="search-bar" placeholder="Search for books..." oninput="filterBooks()" />
+                <input type="text" id="searchBar" placeholder="Search for books..." oninput="filterBooks()" />
                 <div class="selectBoxContainer">
                     <select id="bookGenre" class="selectBox" onchange="filterBooksByGenre()">
                         <option value="">All Genres</option>
@@ -32,7 +32,7 @@
             <div id="library" class="library">
 
             </div>
-            <div id="pagination-controls" class="pagination-controls"></div>
+            <div id="paginationControls" class="paginationControls"></div>
 
         </div>
 

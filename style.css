@@ -70,7 +70,7 @@ a{
     align-items: center;
 }
 
-#search-bar {
+#searchBar {
     width: 100%;
     padding: 12px 20px;
     font-size: 16px;
@@ -81,11 +81,11 @@ a{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#search-bar::placeholder {
+#searchBar::placeholder {
     color: #aaa;
 }
 
-#search-bar:focus {
+#searchBar:focus {
     border-color: #4cceac;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -181,13 +181,13 @@ label {
     transform: scale(1.5);
 }
 
-.pagination-controls {
+.paginationControls {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.pagination-controls button {
+.paginationControls button {
     margin: 0 5px;
     padding: 10px 15px;
     border: none;
@@ -197,11 +197,11 @@ label {
     cursor: pointer;
 }
 
-.pagination-controls button:hover {
+.paginationControls button:hover {
     background-color: #3da58a;
 }
 
-.pagination-controls button.active {
+.paginationControls button.active {
     background-color: #3da58a;
 }
 

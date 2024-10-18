@@ -19,7 +19,7 @@ const displayBookDetails = (book) => {
   const bookDetailsHTML = `
     <img src="${book.formats["image/jpeg"]}" alt="${
     book.title
-  }" class="book-cover"/>
+  }" class="bookCover"/>
     <h3>${book.title}</h3>
     <p>Author: ${book.authors.map((author) => author.name).join(", ")}</p>
     <p>Published: ${book.download_count}</p>

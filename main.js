@@ -98,7 +98,7 @@ const createGenreList = (filteredCategories) => {
 
 // Setup pagination buttons dynamically based on total pages
 const setupPagination = (data, page) => {
-  const paginationControls = document.getElementById('pagination-controls');
+  const paginationControls = document.getElementById('paginationControls');
   paginationControls.innerHTML = ''
 
   // Create Previous button
